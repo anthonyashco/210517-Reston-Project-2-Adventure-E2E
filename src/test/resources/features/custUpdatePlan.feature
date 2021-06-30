@@ -9,11 +9,8 @@ Feature: Customer Update Healthcare Plan
 
     Examples:
       | plan   | button  |
-      | bronze | confirm |
       | bronze | deny    |
-      | silver | confirm |
       | silver | deny    |
-      | gold   | confirm |
       | gold   | deny    |
 
   Scenario Outline: Choose different plans happy
@@ -27,8 +24,5 @@ Feature: Customer Update Healthcare Plan
     Examples:
       | plan   | button  |
       | bronze | confirm |
-      | bronze | deny    |
       | silver | confirm |
-      | silver | deny    |
       | gold   | confirm |
-      | gold   | deny    |
