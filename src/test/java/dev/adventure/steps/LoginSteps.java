@@ -5,12 +5,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import dev.adventure.Config;
 
 public class LoginSteps {
 
+    String path = Config.server;
+
     @Given("the customer is at the login portal")
     public void loginPortal() {
-        BasicRunner.driver.get("http://localhost:7000/");
+        BasicRunner.driver.get(path);
     }
 
     @When("the customer enters their correct username")
