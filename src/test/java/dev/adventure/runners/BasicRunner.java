@@ -1,5 +1,6 @@
 package dev.adventure.runners;
 
+import dev.adventure.pages.ClaimsPage;
 import dev.adventure.pages.LoginPage;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -17,6 +18,7 @@ public class BasicRunner {
 
     public static WebDriver driver = null;
     public static LoginPage loginPage = null;
+    public static ClaimsPage claimsPage = null;
 
     @BeforeClass
     public static void setup() {
@@ -24,6 +26,7 @@ public class BasicRunner {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
+        claimsPage = new ClaimsPage(driver);
     }
 
     @AfterClass
