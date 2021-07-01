@@ -5,24 +5,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class ClaimsPage {
 
     private WebDriver driver;
 
-    public LoginPage(WebDriver driver) {
+    public ClaimsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "uname")
-    public WebElement userName;
+    @FindBy(id = "loginNavigation")
+    public WebElement logoutButton;
 
-    @FindBy(id = "psw")
-    public WebElement password;
+    @FindBy(id = "claim")
+    public WebElement claim;
 
-    @FindBy(id = "loginButton")
-    public WebElement loginButton;
+    @FindBy(id = "amount")
+    public WebElement amount;
 
-    @FindBy(id = "message")
-    public WebElement message;
+    @FindBy(id = "claimButton")
+    public WebElement claimButton;
 }
