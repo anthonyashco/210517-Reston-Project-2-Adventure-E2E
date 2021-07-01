@@ -8,10 +8,9 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -41,7 +40,7 @@ public class CustSubmitClaimsSteps {
 
     @When("the customer inputs a claim amount")
     public void claimAmount() {
-        BasicRunner.claimsPage.amount.sendKeys("1");
+        BasicRunner.claimsPage.amount.sendKeys("3");
     }
 
     @When("the customer clicks the submit button")
@@ -64,9 +63,28 @@ public class CustSubmitClaimsSteps {
 
     @Then("the claim appears in the claims section")
     public void the_claim_appears_in_the_claims_section() {
-        FluentWait wait = new FluentWait(BasicRunner.driver);
-        wait.until(ExpectedConditions.attributeContains(BasicRunner.claimsPage.tableBody, "innerHTML", "1"));
+        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,3);
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = BasicRunner.driver.switchTo().alert();
+        alert.dismiss();
+        wait.until(ExpectedConditions.attributeContains(BasicRunner.claimsPage.tableBody, "innerHTML", "3"));
         String tableBody = BasicRunner.claimsPage.tableBody.getAttribute("innerHTML");
-        Assert.assertTrue(tableBody.contains("1"));
+        Assert.assertTrue(tableBody.contains("3"));
+    }
+
+    @When("the customer clicks the back button")
+    public void the_customer_clicks_the_back_button() {
+        Alert alert = BasicRunner.driver.switchTo().alert();
+        alert.dismiss();
+    }
+
+    @Then("the confirmation window or popup disappears")
+    public void the_confirmation_window_or_popup_disappears(){
+        try {
+            Alert alert = BasicRunner.driver.switchTo().alert();
+        }catch(NoAlertPresentException e){
+            Assert.assertTrue(true);
+        }
+
     }
 }

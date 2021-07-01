@@ -30,6 +30,7 @@ public class BasicRunner {
         loginPage = new LoginPage(driver);
         claimsPage = new ClaimsPage(driver);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
     }
 
     @AfterClass
