@@ -32,6 +32,9 @@ public class ClaimsPage {
     @FindBy(id = "claimsNavigation")
     public WebElement claimsNavigation;
 
+    @FindBy(id = "plan")
+    public WebElement planBody;
+    
     @FindBy(id = "pending")
     public WebElement viewPending;
 
