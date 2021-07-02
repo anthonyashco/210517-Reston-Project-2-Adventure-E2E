@@ -9,8 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features", glue = "dev.adventure.steps")
@@ -27,6 +29,8 @@ public class BasicRunner {
         driver = new ChromeDriver();
         loginPage = new LoginPage(driver);
         claimsPage = new ClaimsPage(driver);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
     }
 
     @AfterClass
