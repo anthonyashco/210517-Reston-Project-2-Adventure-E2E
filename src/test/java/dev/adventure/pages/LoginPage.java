@@ -23,6 +23,9 @@ public class LoginPage {
     @FindBy(id = "loginButton")
     public WebElement loginButton;
 
+    @FindBy(id = "managerButton")
+    public WebElement managerButton;
+
     @FindBy(id = "message")
     public WebElement message;
 
