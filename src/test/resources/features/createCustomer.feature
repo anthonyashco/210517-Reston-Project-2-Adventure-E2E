@@ -5,7 +5,7 @@ Feature: Create a new customer account
     When The customer clicks the create account button
     Then The customer should be notified that the account was created
 
-  Scenario Outline:
+  Scenario Outline: Customer creates account sad path
     Given The customer is on the create account page
     When The customer enters their name as "<name>"
     When The customer enters their occupation as "<occupation>"
@@ -13,10 +13,16 @@ Feature: Create a new customer account
     When The customer enters their password as "<password>"
     When The customer selects a plan
     When The customer clicks the create account button
-    Then The customer should be shown an error popup
+    Then The customer should be shown an error popup containing Empty
     Examples:
     |name| occupation | username | password |
     |   | Valid input | Valid input1 | Valid input|
     | Valid input  |  | Valid input2 | Valid input|
     | Valid input  | Valid input |  | Valid input |
     | Valid input  | Valid input | Valid input3 | |
+
+  Scenario: No plan selected
+    Given The customer is on the create account page
+    When The customer enters the correct information except plan
+    When The customer clicks the create account button
+    Then The customer should be shown an error popup containing Empty
