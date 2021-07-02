@@ -1,6 +1,7 @@
 package dev.adventure.runners;
 
 import dev.adventure.pages.ClaimsPage;
+import dev.adventure.pages.CreateManagerPage;
 import dev.adventure.pages.CreateUserPage;
 import dev.adventure.pages.LoginPage;
 import io.cucumber.junit.Cucumber;
@@ -16,13 +17,14 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/createCustomer.feature", glue = "dev.adventure.steps")
+@CucumberOptions(features = "classpath:features/custViewClaims.feature", glue = "dev.adventure.steps")
 public class BasicRunner {
 
     public static WebDriver driver = null;
     public static LoginPage loginPage = null;
     public static ClaimsPage claimsPage = null;
     public static CreateUserPage createUserPage = null;
+    public static CreateManagerPage createManagerPage = null;
 
     @BeforeClass
     public static void setup() {
@@ -32,6 +34,7 @@ public class BasicRunner {
         loginPage = new LoginPage(driver);
         claimsPage = new ClaimsPage(driver);
         createUserPage = new CreateUserPage(driver);
+        createManagerPage = new CreateManagerPage(driver);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         
 
