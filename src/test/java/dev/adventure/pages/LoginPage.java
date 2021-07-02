@@ -26,7 +26,7 @@ public class LoginPage {
     @FindBy(id = "message")
     public WebElement message;
 
-    @FindBy(id = "createCustomerButtonFix")
+    @FindBy(id = "createCustomerButton")
     public WebElement createCustomer;
 
     @FindBy(id = "createManagerButton")

@@ -2,6 +2,7 @@ Feature: Create a new customer account
   Scenario: Customer creates new account
     Given The customer is on the create account page
     When  The customer fills out the correct fields with appropriate information
+    When The customer clicks the create account button
     Then The customer should be notified that the account was created
 
   Scenario Outline:

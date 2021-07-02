@@ -21,6 +21,8 @@ public class CreateCustomerSteps {
     @Given("The customer is on the create account page")
     public void the_customer_is_on_the_create_account_page() {
         BasicRunner.driver.get(path);
+        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(BasicRunner.loginPage.createCustomer));
         BasicRunner.loginPage.createCustomer.click();
     }
 
@@ -59,12 +61,14 @@ public class CreateCustomerSteps {
 
     @When("The customer clicks the create account button")
     public void attempt_create_account(){
+        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createUserPage.createButton));
         BasicRunner.createUserPage.createButton.click();
     }
 
     @Then("The customer should be notified that the account was created")
     public void account_creation_confirm(){
-        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,2);
+        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,10);
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = BasicRunner.driver.switchTo().alert();
         Assert.assertTrue(alert.getText().contains("Successfully"));
@@ -73,10 +77,10 @@ public class CreateCustomerSteps {
 
     @Then("The customer should be shown an error popup")
     public void the_customer_should_be_shown_an_error_popup() {
-        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,2);
+        WebDriverWait wait = new WebDriverWait(BasicRunner.driver,10);
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = BasicRunner.driver.switchTo().alert();
-        Assert.assertTrue(alert.getText().contains("Failed"));
+        Assert.assertTrue(alert.getText().contains("Empty"));
         alert.dismiss();
     }
 
