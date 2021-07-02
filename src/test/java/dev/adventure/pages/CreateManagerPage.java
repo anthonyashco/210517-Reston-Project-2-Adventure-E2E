@@ -26,9 +26,6 @@ public class CreateManagerPage {
     @FindBy(id = "passwordConfirmInput")
     public WebElement passwordConfirm;
 
-    @FindBy(id = "cb1")
-    public WebElement checkBox;
-
     @FindBy(id = "createButton")
     public WebElement createButton;
 
