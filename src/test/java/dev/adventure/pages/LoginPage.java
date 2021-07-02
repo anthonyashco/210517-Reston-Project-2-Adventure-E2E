@@ -25,4 +25,10 @@ public class LoginPage {
 
     @FindBy(id = "message")
     public WebElement message;
+
+    @FindBy(id = "createCustomerButton")
+    public WebElement createCustomer;
+
+    @FindBy(id = "createManagerButton")
+    public WebElement createManager;
 }
