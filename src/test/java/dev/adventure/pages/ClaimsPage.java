@@ -34,4 +34,16 @@ public class ClaimsPage {
 
     @FindBy(id = "plan")
     public WebElement planBody;
+    
+    @FindBy(id = "pending")
+    public WebElement viewPending;
+
+    @FindBy(id = "completed")
+    public WebElement viewCompleted;
+
+    @FindBy(id = "all")
+    public WebElement viewAll;
+
+    @FindBy(id = "currentView")
+    public WebElement currentView;
 }
