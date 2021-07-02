@@ -17,7 +17,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/custViewClaims.feature", glue = "dev.adventure.steps")
+@CucumberOptions(features = "classpath:features/createManager.feature", glue = "dev.adventure.steps")
 public class BasicRunner {
 
     public static WebDriver driver = null;
@@ -25,6 +25,7 @@ public class BasicRunner {
     public static ClaimsPage claimsPage = null;
     public static CreateUserPage createUserPage = null;
     public static CreateManagerPage createManagerPage = null;
+    public static WebDriverWait explicitWait = null;
 
     @BeforeClass
     public static void setup() {
@@ -35,6 +36,7 @@ public class BasicRunner {
         claimsPage = new ClaimsPage(driver);
         createUserPage = new CreateUserPage(driver);
         createManagerPage = new CreateManagerPage(driver);
+        explicitWait = new WebDriverWait(driver,2);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         
 

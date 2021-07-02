@@ -24,33 +24,40 @@ public class CreateManagerSteps {
 
     @When("The manager enters their name as {string}")
     public void the_manager_enters_their_name_as(String string) {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.name));
         BasicRunner.createManagerPage.name.sendKeys(string);
     }
     @When("The manager enters their username as {string}")
     public void the_manager_enters_their_username_as(String string) {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.username));
         BasicRunner.createManagerPage.username.sendKeys(string);
     }
     @When("The manager enters their password as {string}")
     public void the_manager_enters_their_password_as(String string) {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.password));
         BasicRunner.createManagerPage.password.sendKeys(string);
         BasicRunner.createManagerPage.passwordConfirm.sendKeys(string);
     }
     @When("The manager clicks the checkbox")
     public void the_manager_clicks_the_checkbox() {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.checkBox));
         BasicRunner.createManagerPage.checkBox.click();
     }
     @When("The manager clicks the create account button")
     public void the_manager_clicks_the_create_account_button() {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.createButton));
         BasicRunner.createManagerPage.createButton.click();
     }
     @Then("The manager should be notified that something {string} went wrong.")
     public void the_manager_should_be_notified_that_something_went_wrong(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        BasicRunner.explicitWait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = BasicRunner.driver.switchTo().alert();
+        Assert.assertTrue(alert.getText().contains(string));
     }
 
     @When("The manager enters almost all appropriate information")
     public void the_manager_enters_almost_all_appropriate_information() {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.name));
         BasicRunner.createManagerPage.name.sendKeys("validInput");
         BasicRunner.createManagerPage.username.sendKeys("validInput");
         BasicRunner.createManagerPage.password.sendKeys("validInput");
@@ -67,10 +74,12 @@ public class CreateManagerSteps {
 
     @When("The manager enters appropriate information")
     public void the_manager_enters_appropriate_information() {
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.name));
         BasicRunner.createManagerPage.name.sendKeys("validInput");
         BasicRunner.createManagerPage.username.sendKeys("validInput");
         BasicRunner.createManagerPage.password.sendKeys("validInput");
         BasicRunner.createManagerPage.passwordConfirm.sendKeys("validInput");
+        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.checkBox));
         BasicRunner.createManagerPage.checkBox.click();
     }
 
