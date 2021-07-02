@@ -46,4 +46,7 @@ public class ClaimsPage {
 
     @FindBy(id = "currentView")
     public WebElement currentView;
+
+    @FindBy(id = "count")
+    public WebElement count;
 }
