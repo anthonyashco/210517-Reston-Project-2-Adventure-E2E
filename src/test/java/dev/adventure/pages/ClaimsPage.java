@@ -28,4 +28,7 @@ public class ClaimsPage {
 
     @FindBy(id = "claimTableBody")
     public WebElement tableBody;
+
+    @FindBy(id = "claimsNavigation")
+    public WebElement claimsNavigation;
 }
