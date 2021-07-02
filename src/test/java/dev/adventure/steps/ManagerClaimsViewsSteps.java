@@ -25,6 +25,7 @@ public class ManagerClaimsViewsSteps {
         wait.withTimeout(10, TimeUnit.SECONDS);
         wait.pollingEvery(1, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.urlContains("claim"));
+        wait.until(ExpectedConditions.attributeContains(BasicRunner.claimsPage.count, "innerHTML", "Claims:"));
     }
 
     @Then("the pending claims view is shown")
