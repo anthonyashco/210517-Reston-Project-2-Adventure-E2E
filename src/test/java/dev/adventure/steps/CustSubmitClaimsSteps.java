@@ -48,7 +48,7 @@ public class CustSubmitClaimsSteps {
         BasicRunner.claimsPage.claimButton.click();
     }
 
-    @Then("a comfirmation window or popup appears")
+    @Then("a confirmation window or popup appears")
     public void a_comfirmation_window_or_popup_appears() {
         Alert alert = BasicRunner.driver.switchTo().alert();
         String text = alert.getText();

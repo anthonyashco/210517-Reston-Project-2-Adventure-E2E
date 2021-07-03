@@ -5,7 +5,7 @@ Feature: Customer Submits Claims
     When the customer selects a claim in the dropdown
     When the customer inputs a claim amount
     When the customer clicks the submit button
-    Then a comfirmation window or popup appears
+    Then a confirmation window or popup appears
     When the customer clicks the confirm button
     Then the claim appears in the claims section
 
@@ -14,6 +14,6 @@ Feature: Customer Submits Claims
     When the customer selects a claim in the dropdown
     When the customer inputs a claim amount
     When the customer clicks the submit button
-    Then a comfirmation window or popup appears
+    Then a confirmation window or popup appears
     When the customer clicks the back button
     Then the confirmation window or popup disappears
