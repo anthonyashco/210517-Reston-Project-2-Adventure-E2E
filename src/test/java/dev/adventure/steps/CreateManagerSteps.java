@@ -18,6 +18,7 @@ public class CreateManagerSteps {
 
     @Given("The manager is on the create account page")
     public void the_manager_is_on_the_create_account_page() {
+        BasicRunner.driver.get(path);
         BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.loginPage.createManager));
         BasicRunner.loginPage.createManager.click();
     }
@@ -62,22 +63,12 @@ public class CreateManagerSteps {
         alert.dismiss();
     }
 
-    @When("The manager enters almost all appropriate information")
-    public void the_manager_enters_almost_all_appropriate_information() {
-        BasicRunner.explicitWait.until(ExpectedConditions.elementToBeClickable(BasicRunner.createManagerPage.name));
-        BasicRunner.createManagerPage.name.sendKeys("validInput");
-        BasicRunner.createManagerPage.username.sendKeys("validInput");
-        BasicRunner.createManagerPage.password.sendKeys("validInput");
-        BasicRunner.createManagerPage.passwordConfirm.sendKeys("validInput");
-    }
-
-
-
     @Then("The manager should be notified the account was created and should be redirected to the login page")
     public void the_manager_should_be_notified_the_account_was_created_and_should_be_redirected_to_the_login_page() {
         BasicRunner.explicitWait.until(ExpectedConditions.alertIsPresent());
         Alert alert = BasicRunner.driver.switchTo().alert();
-        Assert.assertTrue(alert.getText().contains("successful"));
+        System.out.println(alert.getText());
+        Assert.assertTrue(alert.getText().contains("You successfully made yourself a manager!"));
         alert.dismiss();
     }
 
@@ -85,7 +76,7 @@ public class CreateManagerSteps {
     public void the_manager_should_be_asked_to_confirm() {
         BasicRunner.explicitWait.until(ExpectedConditions.alertIsPresent());
         Alert alert = BasicRunner.driver.switchTo().alert();
-        Assert.assertTrue(alert.getText().contains("sure"));
+        Assert.assertTrue(alert.getText().contains("Are you sure you want to submit this information?"));
         alert.accept();
     }
 
