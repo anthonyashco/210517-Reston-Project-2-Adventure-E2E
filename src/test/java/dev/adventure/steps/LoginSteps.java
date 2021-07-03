@@ -15,9 +15,18 @@ public class LoginSteps {
 
     String path = Config.server;
 
+    public void pause(Integer milliseconds){
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    };
+
     @Given("the customer is at the login portal")
     public void loginPortal() {
         BasicRunner.driver.get(path);
+        pause(500);
     }
 
     @When("the customer enters their correct username")

@@ -9,14 +9,24 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class CustViewClaimSteps {
 
     String path = Config.server;
 
+    public void pause(Integer milliseconds){
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    };
 
     @Given("The customer is logged in")
     public void the_customer_is_logged_in() {
         BasicRunner.driver.get(path);
+        pause(500);
         BasicRunner.loginPage.userName.sendKeys("Tester3");
         BasicRunner.loginPage.password.sendKeys("Tester3");
         BasicRunner.loginPage.loginButton.click();

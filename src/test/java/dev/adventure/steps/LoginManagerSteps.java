@@ -7,13 +7,24 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginManagerSteps {
 
     String path = Config.server;
 
+    public void pause(Integer milliseconds){
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    };
+
     @Given("The manager is on the login page")
     public void the_manager_is_on_the_login_page() {
         BasicRunner.driver.get(path);
+        pause(500);
     }
 
     @When("the manager enters their correct username")
