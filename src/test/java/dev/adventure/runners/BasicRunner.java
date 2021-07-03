@@ -17,7 +17,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:features/managerClaimsReview.feature", glue = "dev.adventure.steps")
+@CucumberOptions(features = "classpath:features/managerClaimsViews.feature", glue = "dev.adventure.steps")
 public class BasicRunner {
 
     public static WebDriver driver = null;
