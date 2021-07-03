@@ -1,6 +1,4 @@
 Feature: Manager creates new account
-  Background:
-    Given The manager is on the login screen
   Scenario: Manager creates new account happy path
     Given The manager is on the create account page
     When The manager enters appropriate information
@@ -17,6 +15,6 @@ Feature: Manager creates new account
 
     Examples:
       | name | username | password | something|
-      |      | valid input1 | valid input | name |
-      | valid input | | valid input | username |
-      | valid input | valid input2 | | password |
+      |      | valid input1 | valid input | Enter your name. |
+      | valid input | | valid input | Enter a username. |
+      | valid input | valid input2 | | Enter a password. |
